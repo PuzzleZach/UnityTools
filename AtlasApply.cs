@@ -10,6 +10,9 @@ public class AtlasApply : MonoBehaviour
     public Material newAtlasMaterial;
 
     [SerializeField]
+    public string projectName;
+
+    [SerializeField]
     public string modelFolder;
     
     [SerializeField]
@@ -23,7 +26,7 @@ public class AtlasApply : MonoBehaviour
 
         foreach (string modelPath in modelPaths)
         {
-            string newPath = modelPath.Split("AssetJam")[1].Replace("\\", "/").Substring(1);
+            string newPath = modelPath.Split(projectName)[1].Replace("\\", "/").Substring(1);
             GameObject model =  AssetDatabase.LoadAssetAtPath<GameObject>(newPath);
             
             if (model == null) continue;
